@@ -10,8 +10,8 @@ import { useAuth } from './hooks/useAuth'
 import { ProtectedRoute } from './components/Protected/ProtectedRoute'
 import { Dashboard } from './pages/Dashboard'
 import { Services } from './pages/Services'
-import { Login } from './pages/login'
-import { Signup } from './pages/SignUp'
+import { Login } from './pages/Login2'
+import { Signup } from './pages/Signup2'
 
 export const Router = () => {
     const { user, error, login, signup, isAuthenticated, logout, isLoading } = useAuth();
