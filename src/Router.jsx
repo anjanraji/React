@@ -7,11 +7,11 @@ import { About } from './pages/About'
 import { Blog } from './pages/Blog'
 import { BlogSingle } from './pages/BlogSingle'
 import { useAuth } from './hooks/useAuth'
-import { Login } from './pages/Login'
 import { Signup } from './pages/Signup'
 import { ProtectedRoute } from './components/Protected/ProtectedRoute'
 import { Dashboard } from './pages/Dashboard'
 import { Services } from './pages/Services'
+import { Login } from './pages/Login'
 
 export const Router = () => {
     const { user, error, login, signup, isAuthenticated, logout, isLoading } = useAuth();
