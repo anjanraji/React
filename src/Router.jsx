@@ -13,6 +13,7 @@ import { Services } from './pages/Services'
 import { Login } from './pages/Login'
 import { Signup } from './pages/Signup'
 
+
 export const Router = () => {
     const { user, error, login, signup, isAuthenticated, logout, isLoading } = useAuth();
 
