@@ -7,10 +7,10 @@ import { About } from './pages/About'
 import { Blog } from './pages/Blog'
 import { BlogSingle } from './pages/BlogSingle'
 import { useAuth } from './hooks/useAuth'
-import { Login } from './pages/login'
+import { Login } from './pages/Login'
 import { Signup } from './pages/SignUp'
 import { ProtectedRoute } from './components/Protected/ProtectedRoute'
-import { Dashboard } from './pages/dashboard'
+import { Dashboard } from './pages/Dashboard'
 import { Services } from './pages/Services'
 
 export const Router = () => {
