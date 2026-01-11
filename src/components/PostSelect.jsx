@@ -17,7 +17,12 @@ export function PostSelect({
 }) {
 
     return (
-        <Select required name="category" value={category} onValueChange={setCategory}>
+        <Select
+            required
+            name="category"
+            value={category}
+            onValueChange={setCategory}
+        >
             <SelectTrigger className="w-full">
                 <SelectValue placeholder="Category" />
             </SelectTrigger>
