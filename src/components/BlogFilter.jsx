@@ -12,8 +12,6 @@ export const BlogFilter = ({
     currentCat
 }) => {
     const {
-        allCategories,
-        allAuthor,
         currentCategory,
         currentAuthor,
         sortBy,

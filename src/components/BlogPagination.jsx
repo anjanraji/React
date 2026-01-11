@@ -11,6 +11,7 @@ import {
 export function BlogPagination({
     filters,
     setFilters,
+    currentCat
 }) {
     const {
         currentPage,
@@ -58,7 +59,7 @@ export function BlogPagination({
 
     return (
         <>
-            {totalPage > 1 && (
+            {totalPage > 1 && !currentCat && (
                 <Pagination className="my-6">
                     <PaginationContent>
                         <PaginationItem>

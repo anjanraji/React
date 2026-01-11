@@ -139,3 +139,7 @@
 [data-slot="navigation-menu-list"] a[aria-current="page"] {
     @apply bg-gray-800 text-white;
 }
+
+.v-middle:has(.loaded) {
+    @apply mt-0;
+}

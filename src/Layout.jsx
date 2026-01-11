@@ -14,7 +14,7 @@ export const Layout = ({
                 isAuthenticated={isAuthenticated}
             />
             <main className="main flex-1 flex flex-col w-full py-20 px-5 relative" id="main">
-                <div className='m-auto w-full max-w-[1200px]'>
+                <div className='v-middle m-auto w-full max-w-[1200px]'>
                     <Outlet />
                 </div>
             </main>

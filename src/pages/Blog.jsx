@@ -69,7 +69,7 @@ export const Blog = ({
             )}
 
             {!isLoading && isLoaded && (
-                <div className="gap-4 mb-5 items-center lg:flex">
+                <div className={`gap-4 mb-5 items-center lg:flex ${isLoaded ? 'loaded' : ''}`}>
                     <h1 className="scroll-m-20 text-3xl font-bold tracking-tight text-balance mb-5  lg:mb-0">
                         {title}
                     </h1>
@@ -96,6 +96,7 @@ export const Blog = ({
                     <BlogPagination
                         filters={filters}
                         setFilters={setFilters}
+                        currentCat={currentCategory}
                     s/>
                 </>
             )}
