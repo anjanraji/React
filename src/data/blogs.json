@@ -1,0 +1,90 @@
+[
+  {
+    "_id": "1",
+    "slug": "getting-started-with-react-hooks",
+    "title": "Getting Started with React Hooks",
+    "excerpt": "A beginner-friendly walkthrough of useState and useEffect, and why hooks changed the way we write React components.",
+    "content": "<p>Hooks let you use state and other React features without writing a class. The two most common hooks are <strong>useState</strong> and <strong>useEffect</strong>.</p><p><code>useState</code> gives a component local state, while <code>useEffect</code> lets you run side effects such as fetching data or subscribing to events after render.</p><p>Start small: convert one class component at a time, and keep your effects focused on a single concern.</p>",
+    "category": "react",
+    "authorName": "Alex Johnson",
+    "authorId": "u1",
+    "createdAt": "2026-08-20T10:00:00.000Z"
+  },
+  {
+    "_id": "2",
+    "slug": "javascript-array-methods-you-should-know",
+    "title": "JavaScript Array Methods You Should Know",
+    "excerpt": "map, filter, reduce, and a few lesser-known array methods that make everyday JavaScript cleaner.",
+    "content": "<p><strong>map</strong>, <strong>filter</strong>, and <strong>reduce</strong> cover most day-to-day transformations, but methods like <code>find</code>, <code>some</code>, and <code>flatMap</code> are worth knowing too.</p><p>Prefer these over manual <code>for</code> loops when you're transforming or querying a list &mdash; they read closer to the intent of the code.</p>",
+    "category": "javascript",
+    "authorName": "Sam Rivera",
+    "authorId": "u2",
+    "createdAt": "2026-08-18T09:30:00.000Z"
+  },
+  {
+    "_id": "3",
+    "slug": "mastering-css-grid-layout",
+    "title": "Mastering CSS Grid Layout",
+    "excerpt": "How to think in rows and columns with CSS Grid, and when to reach for Grid instead of Flexbox.",
+    "content": "<p>CSS Grid excels at two-dimensional layouts &mdash; rows and columns at the same time &mdash; while Flexbox is better suited to one-dimensional layouts.</p><p>Define a <code>grid-template-columns</code> and <code>grid-template-areas</code> to lay out a page skeleton in just a few lines of CSS.</p>",
+    "category": "css",
+    "authorName": "Alex Johnson",
+    "authorId": "u1",
+    "createdAt": "2026-08-15T14:15:00.000Z"
+  },
+  {
+    "_id": "4",
+    "slug": "wordpress-theme-development-basics",
+    "title": "WordPress Theme Development Basics",
+    "excerpt": "An introduction to template hierarchy, functions.php, and building your first custom WordPress theme.",
+    "content": "<p>Every WordPress theme starts with <code>style.css</code> and <code>index.php</code>. From there, the template hierarchy decides which file renders a given page.</p><p>Use <code>functions.php</code> to register menus, widget areas, and theme support features like custom logos and post thumbnails.</p>",
+    "category": "wordpress",
+    "authorName": "Sam Rivera",
+    "authorId": "u2",
+    "createdAt": "2026-08-10T11:45:00.000Z"
+  },
+  {
+    "_id": "5",
+    "slug": "building-rest-apis-with-nodejs",
+    "title": "Building REST APIs with Node.js",
+    "excerpt": "A practical guide to structuring routes, controllers, and middleware for a clean Express API.",
+    "content": "<p>A well-structured Express API separates <strong>routes</strong>, <strong>controllers</strong>, and <strong>middleware</strong> so each file has one job.</p><p>Add centralized error handling early &mdash; it keeps your controllers small and your error responses consistent.</p>",
+    "category": "backend",
+    "authorName": "Alex Johnson",
+    "authorId": "u1",
+    "createdAt": "2026-08-05T08:00:00.000Z"
+  },
+  {
+    "_id": "6",
+    "slug": "why-clean-code-matters",
+    "title": "Why Clean Code Matters",
+    "excerpt": "Clean code isn't about perfection - it's about making the next change easier for whoever touches the code next.",
+    "content": "<p>Clean code favors clarity over cleverness. Descriptive names, small functions, and consistent formatting all pay off the moment someone else (including future you) needs to change the code.</p><p>Treat readability as a feature, not an afterthought.</p>",
+    "category": "general",
+    "authorName": "Sam Rivera",
+    "authorId": "u2",
+    "createdAt": "2026-07-28T16:20:00.000Z"
+  },
+  {
+    "_id": "7",
+    "slug": "react-performance-optimization-tips",
+    "title": "React Performance Optimization Tips",
+    "excerpt": "Practical techniques - memoization, code splitting, and virtualization - for keeping React apps fast.",
+    "content": "<p>Reach for <code>React.memo</code>, <code>useMemo</code>, and <code>useCallback</code> only when profiling shows a real re-render problem &mdash; premature memoization adds complexity without benefit.</p><p>For large lists, list virtualization and route-based code splitting usually give a bigger win than micro-optimizations.</p>",
+    "category": "react",
+    "authorName": "Sam Rivera",
+    "authorId": "u2",
+    "createdAt": "2026-07-22T13:10:00.000Z"
+  },
+  {
+    "_id": "8",
+    "slug": "understanding-async-await-in-javascript",
+    "title": "Understanding Async/Await in JavaScript",
+    "excerpt": "How async/await builds on Promises to make asynchronous code read like synchronous code.",
+    "content": "<p><code>async/await</code> is syntax sugar over Promises &mdash; an <code>async</code> function always returns a Promise, and <code>await</code> pauses execution until that Promise settles.</p><p>Wrap awaited calls in <code>try/catch</code> to handle rejections the same way you'd handle a thrown error.</p>",
+    "category": "javascript",
+    "authorName": "Alex Johnson",
+    "authorId": "u1",
+    "createdAt": "2026-07-15T10:50:00.000Z"
+  }
+]
