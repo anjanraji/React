@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router"
 import { Button } from "@/components/ui/button"
 import {
     Card,
@@ -7,18 +8,36 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { Badge } from "@/components/ui/badge"
+
+const team = [
+    {
+        name: "Alex Johnson",
+        role: "Co-founder, Frontend & CSS",
+        bio: "Builds design systems for a living and writes about React and CSS on the weekend.",
+    },
+    {
+        name: "Sam Rivera",
+        role: "Co-founder, JavaScript & Backend",
+        bio: "Backend engineer who ended up writing most of the JavaScript and Node.js posts.",
+    },
+]
 
 export const About = () => {
     return (
         <main className="min-h-screen bg-background text-foreground">
-            <section className="py-28">
+            <section className="py-16">
                 <div className="mx-auto max-w-5xl px-6 text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-                        About Us
+                    <Badge variant="secondary" className="mb-5 px-3 py-1 uppercase tracking-wide">
+                        About DevNotes
+                    </Badge>
+                    <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-balance">
+                        Two developers, one blog
                     </h1>
-                    <p className="mt-6 text-lg text-muted-foreground max-w-3xl mx-auto">
-                        We are a team focused on building thoughtful, scalable, and
-                        user-centered digital experiences.
+                    <p className="mt-6 text-lg text-muted-foreground max-w-3xl mx-auto text-balance">
+                        DevNotes started as a shared notes doc between two developers
+                        tired of losing the same Stack Overflow answers twice. It's now
+                        a small blog covering React, JavaScript, CSS, and backend work.
                     </p>
                 </div>
             </section>
@@ -27,25 +46,29 @@ export const About = () => {
                 <div className="mx-auto max-w-6xl px-6 grid gap-12 md:grid-cols-2 items-center">
                     <div>
                         <h2 className="text-3xl font-semibold">
-                            Our story
+                            How it started
                         </h2>
                         <p className="mt-4 text-muted-foreground">
-                            Our journey started with a simple goal: create clean,
-                            maintainable products that scale with real business needs.
-                            Over time, we refined our process around design systems,
-                            accessibility, and performance.
+                            In 2023, Alex and Sam were working on the same product team
+                            and kept explaining the same debugging tricks to each other
+                            over Slack. Eventually those messages turned into proper
+                            write-ups, and DevNotes was born.
                         </p>
                         <p className="mt-4 text-muted-foreground">
-                            Today, we work closely with teams to turn ideas into
-                            production-ready solutions using modern tools and
-                            best practices.
+                            The rule has stayed the same since day one: if we didn't
+                            actually run into the problem ourselves, we don't write
+                            about it.
                         </p>
                     </div>
 
                     <Card>
                         <CardContent className="p-8 text-sm text-muted-foreground">
-                            “We believe great products are built through clarity,
-                            consistency, and collaboration.”
+                            &ldquo;We started DevNotes so future-us would stop
+                            re-Googling the same things. Turns out a lot of other
+                            developers had the same problem.&rdquo;
+                            <div className="mt-4 text-foreground font-medium not-italic">
+                                &mdash; Alex &amp; Sam, DevNotes
+                            </div>
                         </CardContent>
                     </Card>
                 </div>
@@ -55,37 +78,37 @@ export const About = () => {
                 <div className="absolute inset-y-0 left-1/2 w-screen -translate-x-1/2 bg-muted" />
                 <div className="relative z-10 mx-auto max-w-7xl px-6 py-24">
                     <h2 className="text-3xl font-semibold text-center">
-                        Our values
+                        What we care about
                     </h2>
 
                     <div className="mt-12 grid gap-6 md:grid-cols-3">
                         <Card>
                             <CardHeader>
-                                <CardTitle>Clarity</CardTitle>
+                                <CardTitle>Practical over perfect</CardTitle>
                             </CardHeader>
                             <CardContent className="text-sm text-muted-foreground">
-                                We value simple solutions that are easy to understand,
-                                maintain, and scale.
+                                We'd rather ship a useful, slightly imperfect tutorial
+                                than sit on a "perfect" draft for six months.
                             </CardContent>
                         </Card>
 
                         <Card>
                             <CardHeader>
-                                <CardTitle>Quality</CardTitle>
+                                <CardTitle>Tested, not theoretical</CardTitle>
                             </CardHeader>
                             <CardContent className="text-sm text-muted-foreground">
-                                Attention to detail, accessibility, and performance
-                                guide every decision we make.
+                                Every code sample comes from something that ran in a
+                                real project, not just a sandbox demo.
                             </CardContent>
                         </Card>
 
                         <Card>
                             <CardHeader>
-                                <CardTitle>Collaboration</CardTitle>
+                                <CardTitle>Open to contributors</CardTitle>
                             </CardHeader>
                             <CardContent className="text-sm text-muted-foreground">
-                                We work as partners with our clients, not just
-                                service providers.
+                                Anyone can create a free account and publish a post.
+                                We review, but we don't gatekeep.
                             </CardContent>
                         </Card>
                     </div>
@@ -93,25 +116,26 @@ export const About = () => {
             </section>
 
             <section className="py-24">
-                <div className="mx-auto max-w-7xl px-6">
+                <div className="mx-auto max-w-4xl px-6">
                     <h2 className="text-3xl font-semibold text-center">
-                        Meet the team
+                        The people behind DevNotes
                     </h2>
 
-                    <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
-                        {["Designer", "Frontend Dev", "Backend Dev", "Product Lead"].map(
-                            (role, index) => (
-                                <Card key={index}>
-                                    <CardHeader>
-                                        <CardTitle>{role}</CardTitle>
-                                    </CardHeader>
-                                    <CardContent className="text-sm text-muted-foreground">
-                                        Passionate about building meaningful digital products
-                                        with modern technologies.
-                                    </CardContent>
-                                </Card>
-                            )
-                        )}
+                    <div className="mt-12 grid gap-6 sm:grid-cols-2">
+                        {team.map((member) => (
+                            <Card key={member.name}>
+                                <CardHeader>
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold">
+                                        {member.name.split(" ").map((n) => n[0]).join("")}
+                                    </div>
+                                    <CardTitle className="mt-3">{member.name}</CardTitle>
+                                    <p className="text-sm text-primary">{member.role}</p>
+                                </CardHeader>
+                                <CardContent className="text-sm text-muted-foreground">
+                                    {member.bio}
+                                </CardContent>
+                            </Card>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -119,14 +143,15 @@ export const About = () => {
             <section className="py-24">
                 <div className="mx-auto max-w-4xl px-6 text-center">
                     <h3 className="text-3xl font-semibold">
-                        Want to work with us?
+                        Want to write for DevNotes?
                     </h3>
                     <p className="mt-4 text-muted-foreground">
-                        Let’s build something great together.
+                        We're always happy to publish a good, honest write-up from
+                        another developer.
                     </p>
 
-                    <Button size="lg" className="mt-8 cursor-pointer">
-                        Get in Touch
+                    <Button size="lg" className="mt-8 cursor-pointer" asChild>
+                        <Link to="/sign-up">Create a Free Account</Link>
                     </Button>
                 </div>
             </section>

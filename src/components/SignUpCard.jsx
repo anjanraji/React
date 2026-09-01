@@ -13,6 +13,7 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router"
 import { Spinner } from "./ui/spinner"
 import { AlertError } from "./AlertError"
+import { CodeXml } from "lucide-react"
 
 
 export function SignUpCard({
@@ -66,11 +67,14 @@ export function SignUpCard({
     }
 
     return (
-        <Card className="w-full max-w-sm mx-auto ">
+        <Card className="w-full max-w-sm mx-auto py-8 shadow-md">
             <CardHeader>
-                <CardTitle>Signup to your account</CardTitle>
+                <span className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                    <CodeXml className="h-5 w-5" />
+                </span>
+                <CardTitle className="text-xl">Join DevNotes</CardTitle>
                 <CardDescription>
-                    Enter your detail below to create your new account
+                    Create a free account to publish your own posts
                 </CardDescription>
                 <CardAction>
                     <Button asChild variant="link">

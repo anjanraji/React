@@ -41,10 +41,10 @@ export function BlogCard({
                     const dateOnly = d.toISOString().slice(0, 10)
 
                     return (
-                        <Card className="w-full p-0 opacity-0" key={item._id} data-loaded={isLoaded} style={{ transitionDelay: `${index * 30}ms` }}>
-                            <Link to={`/blogs/${item.slug}`} className="block w-full p-5 rounded-xl h-full transition-colors hover:bg-gray-50">
-                                <CardContent className="p-0">
-                                    <AspectRatio ratio={16 / 9} className="bg-gray-300 mb-3 rounded-lg w-full"></AspectRatio>
+                        <Card className="w-full p-0 opacity-0 overflow-hidden" key={item._id} data-loaded={isLoaded} style={{ transitionDelay: `${index * 30}ms` }}>
+                            <Link to={`/blogs/${item.slug}`} className="block w-full h-full transition-colors hover:bg-muted/40">
+                                <CardContent className="p-5">
+                                    <AspectRatio ratio={16 / 9} data-cover={item.category} className="mb-3 rounded-lg w-full"></AspectRatio>
                                     <div className="flex w-full flex-wrap gap-2">
                                         <Badge className="uppercase mb-1">{item.category}</Badge>
                                         <Badge variant="secondary" className="uppercase mb-1">{item.authorName}</Badge>
@@ -53,7 +53,7 @@ export function BlogCard({
                                     <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
                                         {item.title}
                                     </h3>
-                                    <p>{item.excerpt}</p>
+                                    <p className="mt-1 text-muted-foreground">{item.excerpt}</p>
                                 </CardContent>
                             </Link>
                         </Card>

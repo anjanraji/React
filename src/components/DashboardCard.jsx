@@ -22,19 +22,20 @@ export function DashboardCard({
 
                     return (
                         <Card
-                            className="w-full p-0 opacity-0"
+                            className="w-full p-0 opacity-0 overflow-hidden"
                             key={item._id}
                             data-loaded={isLoaded}
                             style={{ transitionDelay: `${index * 30}ms` }}
                         >
                             <div
-                                className={`flex flex-col w-full p-5 rounded-xl h-full transition-colors hover:bg-gray-50 ${listView ? 'grid grid-cols-[1fr_90px] gap-3' : ''}`}>
+                                className={`flex flex-col w-full p-5 h-full transition-colors hover:bg-muted/40 ${listView ? 'grid grid-cols-[1fr_90px] gap-3' : ''}`}>
                                 <CardContent
                                     className={`p-0 ${listView ? 'grid grid-cols-[150px_1fr] gap-3 items-center' : ''}`}
                                 >
                                     <AspectRatio
                                         ratio={`${listView ? 4 / 3 : 16 / 9}`}
-                                        className={`bg-gray-300 rounded-lg w-full ${listView ? "mb-0" : "mb-3"}`}
+                                        data-cover={item.category}
+                                        className={`rounded-lg w-full ${listView ? "mb-0" : "mb-3"}`}
                                     >
                                     </AspectRatio>
                                     <div>
@@ -52,7 +53,7 @@ export function DashboardCard({
                                         <h3 className="capitalize scroll-m-20 text-xl font-semibold tracking-tight">
                                             {item.title}
                                         </h3>
-                                        <p>
+                                        <p className="text-muted-foreground">
                                             {item.excerpt}
                                         </p>
                                     </div>

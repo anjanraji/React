@@ -22,7 +22,7 @@ export function BreadcrumbLinks({
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
                     <BreadcrumbLink asChild>
-                        <Link to="/blogs">blogs</Link>
+                        <Link to="/blogs">Blog</Link>
                     </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />

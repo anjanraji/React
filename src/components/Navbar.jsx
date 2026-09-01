@@ -21,45 +21,46 @@ export function Navigation({
     return (
         <>
             <NavigationMenu className="max-w-none justify-end">
-                <NavigationMenuList className="flex-wrap">
+                <NavigationMenuList className="flex-wrap gap-1">
                     {isAuthenticated && (
                         <NavigationMenuItem>
                             <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                                <NavLink to="/dashboard" className="transition-colors duration-300 sm:text-[16px] md:text-md">Dashboard</NavLink>
+                                <NavLink to="/dashboard" className="rounded-md transition-colors duration-300 sm:text-[16px] md:text-md">Dashboard</NavLink>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                     )}
                     <NavigationMenuItem>
                         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                            <NavLink to="/about-us" className="transition-colors duration-300 sm:text-[16px] md:text-md">About Us</NavLink>
+                            <NavLink to="/about-us" className="rounded-md transition-colors duration-300 sm:text-[16px] md:text-md">About</NavLink>
                         </NavigationMenuLink>
                     </NavigationMenuItem>
 
                     <NavigationMenuItem>
                         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                            <NavLink to="/services" className="transition-colors duration-300 sm:text-[16px] md:text-md">Services</NavLink>
+                            <NavLink to="/services" className="rounded-md transition-colors duration-300 sm:text-[16px] md:text-md">Write With Us</NavLink>
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
                         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-                            <NavLink to="/blogs" className="transition-colors duration-300 sm:text-[16px] md:text-md">Blog</NavLink>
+                            <NavLink to="/blogs" className="rounded-md transition-colors duration-300 sm:text-[16px] md:text-md">Blog</NavLink>
                         </NavigationMenuLink>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu >
-            <span className="border-l mt-1 border-dashed h-7 border-gray-600 mx-2" />
+            <span className="border-l mt-1 border-dashed h-7 border-border mx-2" />
             {!isAuthenticated && (
-                <div className="flex gap-1">
-                    <Button asChild>
+                <div className="flex gap-1.5">
+                    <Button variant="outline" asChild>
                         <NavLink to="/login">Login</NavLink>
                     </Button>
-                    <Button variant="outline" asChild>
+                    <Button asChild>
                         <NavLink to="/sign-up">Sign Up</NavLink>
                     </Button>
                 </div>
             )}
             {isAuthenticated && (
                 <Button
+                    variant="outline"
                     className="cursor-pointer ml-1"
                     onClick={() => setOpen(true)}
                 >

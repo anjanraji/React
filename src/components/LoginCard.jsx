@@ -13,6 +13,7 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router"
 import { Spinner } from "./ui/spinner"
 import { AlertError } from "./AlertError"
+import { CodeXml } from "lucide-react"
 
 export function LoginCard({
     user,
@@ -62,11 +63,14 @@ export function LoginCard({
     }
 
     return (
-        <Card className="w-full max-w-sm mx-auto">
+        <Card className="w-full max-w-sm mx-auto py-8 shadow-md">
             <CardHeader>
-                <CardTitle>Login to your account</CardTitle>
+                <span className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                    <CodeXml className="h-5 w-5" />
+                </span>
+                <CardTitle className="text-xl">Welcome back</CardTitle>
                 <CardDescription>
-                    Enter your email below to login to your account
+                    Login to publish and manage your DevNotes posts
                 </CardDescription>
                 <CardAction>
                     <Button asChild variant="link">
