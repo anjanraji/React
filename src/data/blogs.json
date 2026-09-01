@@ -86,5 +86,93 @@
     "authorName": "Alex Johnson",
     "authorId": "u1",
     "createdAt": "2026-07-15T10:50:00.000Z"
+  },
+  {
+    "_id": "9",
+    "slug": "react-server-components-in-plain-english",
+    "title": "React Server Components in Plain English",
+    "excerpt": "What Server Components actually are, how they differ from SSR, and when they're worth reaching for.",
+    "content": "<p>A Server Component renders entirely on the server and ships zero JavaScript to the browser for that piece of the tree &mdash; it's not the same thing as server-side rendering, which still hydrates on the client.</p><p>Reach for Server Components for data-heavy, mostly-static pieces of a page, and keep <code>'use client'</code> components for anything that needs state, effects, or event handlers.</p>",
+    "category": "react",
+    "authorName": "Alex Johnson",
+    "authorId": "u1",
+    "createdAt": "2026-08-22T09:15:00.000Z"
+  },
+  {
+    "_id": "10",
+    "slug": "a-practical-guide-to-css-custom-properties",
+    "title": "A Practical Guide to CSS Custom Properties",
+    "excerpt": "Using CSS variables for theming, spacing scales, and component state instead of hardcoded values.",
+    "content": "<p>CSS custom properties (<code>--like-this</code>) aren't just for colors &mdash; they're great for spacing scales, breakpoints, and even passing values from JavaScript into CSS via <code>element.style.setProperty()</code>.</p><p>Scope a variable to a component root instead of <code>:root</code> when it only needs to vary locally, and it becomes a lightweight way to theme one part of a page without extra classes.</p>",
+    "category": "css",
+    "authorName": "Sam Rivera",
+    "authorId": "u2",
+    "createdAt": "2026-08-24T11:40:00.000Z"
+  },
+  {
+    "_id": "11",
+    "slug": "designing-idempotent-apis",
+    "title": "Designing Idempotent APIs",
+    "excerpt": "Why idempotency matters for retries and flaky networks, and how to add idempotency keys to your endpoints.",
+    "content": "<p>An idempotent endpoint returns the same result no matter how many times a client retries the same request &mdash; essential once you're dealing with real networks that drop responses, not just requests.</p><p>For <strong>POST</strong> endpoints that create resources, accept a client-generated <code>Idempotency-Key</code> header and store the result keyed on it so a retried request returns the original response instead of creating a duplicate.</p>",
+    "category": "backend",
+    "authorName": "Alex Johnson",
+    "authorId": "u1",
+    "createdAt": "2026-08-26T08:30:00.000Z"
+  },
+  {
+    "_id": "12",
+    "slug": "debugging-memory-leaks-in-javascript-apps",
+    "title": "Debugging Memory Leaks in JavaScript Apps",
+    "excerpt": "How to use the Chrome DevTools heap snapshot to find detached DOM nodes and forgotten event listeners.",
+    "content": "<p>Most front-end memory leaks come down to a handful of causes: event listeners that are never removed, timers that outlive the component that created them, and closures holding a reference to DOM nodes that were already removed.</p><p>Take two heap snapshots in DevTools &mdash; before and after the suspected leaky action &mdash; and compare them; a growing count of <strong>Detached HTMLDivElement</strong> nodes is a strong signal something isn't cleaning up after itself.</p>",
+    "category": "javascript",
+    "authorName": "Sam Rivera",
+    "authorId": "u2",
+    "createdAt": "2026-08-27T15:05:00.000Z"
+  },
+  {
+    "_id": "13",
+    "slug": "securing-a-wordpress-site-the-essentials",
+    "title": "Securing a WordPress Site: The Essentials",
+    "excerpt": "The handful of changes that stop most automated WordPress attacks before they start.",
+    "content": "<p>Keep WordPress core, themes, and plugins updated, remove any plugin you're not actively using, and disable file editing from the admin dashboard with <code>define('DISALLOW_FILE_EDIT', true);</code> in <code>wp-config.php</code>.</p><p>Beyond that, a unique database prefix, strong admin passwords with two-factor auth, and regular offsite backups cover the vast majority of real-world attacks.</p>",
+    "category": "wordpress",
+    "authorName": "Alex Johnson",
+    "authorId": "u1",
+    "createdAt": "2026-08-29T10:00:00.000Z"
+  },
+  {
+    "_id": "14",
+    "slug": "how-we-review-pull-requests",
+    "title": "How We Review Pull Requests",
+    "excerpt": "A short, practical checklist for giving useful code review feedback without slowing the team down.",
+    "content": "<p>A good review comments on the <strong>behavior</strong> and <strong>risk</strong> of a change before it comments on style &mdash; naming and formatting nits are worth raising, but they shouldn't block a merge on their own.</p><p>Keep pull requests small enough to review in one sitting; a 40-line diff gets a careful review, a 1,200-line diff gets a rubber stamp.</p>",
+    "category": "general",
+    "authorName": "Sam Rivera",
+    "authorId": "u2",
+    "createdAt": "2026-08-30T13:20:00.000Z"
+  },
+  {
+    "_id": "15",
+    "slug": "state-management-without-redux",
+    "title": "State Management Without Redux",
+    "excerpt": "When useState, useReducer, and Context are genuinely enough, and how to tell you've outgrown them.",
+    "content": "<p>Most apps don't need a global state library &mdash; <code>useState</code> and <code>useReducer</code> handle local state, and <strong>Context</strong> handles the occasional value that needs to skip a few levels, like the current theme or logged-in user.</p><p>Reach for a dedicated state library once you have state that many unrelated components read and write at high frequency, and prop drilling or re-render cost actually becomes a measured problem.</p>",
+    "category": "react",
+    "authorName": "Sam Rivera",
+    "authorId": "u2",
+    "createdAt": "2026-08-31T09:45:00.000Z"
+  },
+  {
+    "_id": "16",
+    "slug": "container-queries-are-finally-usable",
+    "title": "Container Queries Are Finally Usable",
+    "excerpt": "Styling a component based on its container's size instead of the viewport, with broad browser support.",
+    "content": "<p>Container queries let a component adapt to the space it's actually given, not the size of the browser window &mdash; wrap it in a container with <code>container-type: inline-size</code>, then style with <code>@container</code>.</p><p>This finally makes truly reusable components possible: the same card can lay out differently in a narrow sidebar and a wide main column without any JavaScript.</p>",
+    "category": "css",
+    "authorName": "Alex Johnson",
+    "authorId": "u1",
+    "createdAt": "2026-09-01T07:50:00.000Z"
   }
 ]
