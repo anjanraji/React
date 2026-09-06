@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { CodeXml, Github, Twitter, Rss } from 'lucide-react'
+import { Github, Twitter, Rss, ExternalLink } from 'lucide-react'
+import { Logo } from './Logo'
 
 export const Footer = () => {
     const currentYear = new Date().getFullYear()
@@ -8,15 +9,10 @@ export const Footer = () => {
     return (
         <footer className='border-t bg-secondary/40'>
             <div className='mx-auto max-w-[1200px] px-5 py-12'>
-                <div className='grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr]'>
+                <div className='grid gap-10 md:grid-cols-[2fr_1fr_1fr_1fr_1fr]'>
                     <div>
-                        <Link to='/' className='flex items-center gap-2'>
-                            <span className='flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground'>
-                                <CodeXml className='h-4 w-4' />
-                            </span>
-                            <span className='text-lg font-bold tracking-tight'>
-                                Dev<span className='text-primary'>Notes</span>
-                            </span>
+                        <Link to='/'>
+                            <Logo iconClassName='h-8 w-8' />
                         </Link>
                         <p className='mt-4 max-w-xs text-sm text-muted-foreground'>
                             Practical, no-fluff tutorials on React, JavaScript, CSS, and
@@ -61,6 +57,22 @@ export const Footer = () => {
                             <li><Link to='/login' className='transition-colors hover:text-foreground'>Login</Link></li>
                             <li><Link to='/sign-up' className='transition-colors hover:text-foreground'>Sign Up</Link></li>
                             <li><Link to='/dashboard' className='transition-colors hover:text-foreground'>Dashboard</Link></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 className='text-sm font-semibold'>Elsewhere</h3>
+                        <ul className='mt-4 space-y-2.5 text-sm text-muted-foreground'>
+                            <li>
+                                <a href='https://www.raji.com.np/' target='_blank' rel='noreferrer' className='inline-flex items-center gap-1 transition-colors hover:text-foreground'>
+                                    Portfolio <ExternalLink className='h-3.5 w-3.5' />
+                                </a>
+                            </li>
+                            <li>
+                                <a href='https://nextjs.raji.com.np/' target='_blank' rel='noreferrer' className='inline-flex items-center gap-1 transition-colors hover:text-foreground'>
+                                    Next.js Version <ExternalLink className='h-3.5 w-3.5' />
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

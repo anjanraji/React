@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router"
 import { Button } from "@/components/ui/button"
 import {
@@ -9,14 +9,19 @@ import {
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { useApi } from "@/hooks/useApi"
 import {
     Atom,
     Braces,
     Paintbrush,
     Server,
+    Layers,
+    Sparkles,
     Wand2,
     BookOpenCheck,
     Users,
+    ArrowRight,
 } from "lucide-react"
 
 const topics = [
@@ -24,12 +29,46 @@ const topics = [
     { label: "JavaScript", slug: "javascript", icon: Braces, blurb: "Core language, ES2024+" },
     { label: "CSS", slug: "css", icon: Paintbrush, blurb: "Layout, Grid, and animation" },
     { label: "Backend", slug: "backend", icon: Server, blurb: "APIs, Node.js, databases" },
+    { label: "WordPress", slug: "wordpress", icon: Layers, blurb: "Themes, plugins, and the loop" },
+    { label: "General", slug: "general", icon: Sparkles, blurb: "Tooling, workflow, and career notes" },
 ]
 
 export const Home = () => {
+    const api = useApi()
+    const [posts, setPosts] = useState([])
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    useEffect(() => {
+        let active = true
+
+        api.blogs.getAll().then((response) => {
+            if (!active) return
+            setPosts(response.data || [])
+            setIsLoaded(true)
+        })
+
+        return () => {
+            active = false
+        }
+    }, [])
+
+    const latestPosts = [...posts]
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+        .slice(0, 3)
+
+    const stats = [
+        { label: "Articles", value: posts.length },
+        { label: "Topics", value: new Set(posts.map((p) => p.category)).size },
+        { label: "Writers", value: new Set(posts.map((p) => p.authorName)).size },
+    ]
+
     return (
         <main className="min-h-screen bg-background text-foreground">
-            <section className="py-16">
+            <section className="relative overflow-hidden py-16">
+                <div
+                    className="pointer-events-none absolute inset-x-0 -top-32 -z-10 h-96 bg-[radial-gradient(ellipse_50%_50%_at_50%_0%,var(--accent),transparent_70%)]"
+                    aria-hidden="true"
+                />
                 <div className="mx-auto max-w-5xl px-6 text-center">
                     <Badge variant="secondary" className="mb-5 px-3 py-1 uppercase tracking-wide">
                         A blog for working developers
@@ -52,6 +91,17 @@ export const Home = () => {
                             <Link to="/about-us">About the Authors</Link>
                         </Button>
                     </div>
+
+                    {isLoaded && (
+                        <div className="mt-14 flex flex-wrap justify-center gap-x-10 gap-y-4">
+                            {stats.map((stat) => (
+                                <div key={stat.label} className="text-center">
+                                    <div className="text-3xl font-bold text-primary">{stat.value}</div>
+                                    <div className="text-sm text-muted-foreground">{stat.label}</div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
 
@@ -66,7 +116,7 @@ export const Home = () => {
                         </p>
                     </div>
 
-                    <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                         {topics.map(({ label, icon: Icon, blurb }) => (
                             <Link to="/blogs" key={label} className="group block">
                                 <Card className="h-full transition-colors group-hover:border-primary/40">
@@ -85,6 +135,53 @@ export const Home = () => {
                     </div>
                 </div>
             </section>
+
+            {(!isLoaded || latestPosts.length > 0) && (
+                <section className="py-24">
+                    <div className="mx-auto max-w-6xl px-6">
+                        <div className="flex flex-wrap items-end justify-between gap-4">
+                            <div>
+                                <h2 className="text-3xl font-semibold">Latest from the blog</h2>
+                                <p className="mt-3 text-muted-foreground">
+                                    Fresh write-ups, straight from the people who wrote the code.
+                                </p>
+                            </div>
+                            <Button variant="ghost" className="cursor-pointer" asChild>
+                                <Link to="/blogs" className="group inline-flex items-center gap-1.5">
+                                    View all posts
+                                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                                </Link>
+                            </Button>
+                        </div>
+
+                        <div className="mt-10 grid gap-5 md:grid-cols-3">
+                            {latestPosts.map((post) => {
+                                const dateOnly = new Date(post.createdAt).toISOString().slice(0, 10)
+
+                                return (
+                                    <Link to={`/blogs/${post.slug}`} key={post._id} className="group block">
+                                        <Card className="h-full p-0 overflow-hidden transition-colors group-hover:border-primary/40">
+                                            <CardContent className="p-5">
+                                                <AspectRatio ratio={16 / 9} data-cover={post.category} className="mb-3 rounded-lg w-full" />
+                                                <div className="flex flex-wrap gap-2">
+                                                    <Badge className="uppercase">{post.category}</Badge>
+                                                    <Badge variant="outline" className="uppercase">{dateOnly}</Badge>
+                                                </div>
+                                                <h3 className="mt-3 text-lg font-semibold tracking-tight">
+                                                    {post.title}
+                                                </h3>
+                                                <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
+                                                    {post.excerpt}
+                                                </p>
+                                            </CardContent>
+                                        </Card>
+                                    </Link>
+                                )
+                            })}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             <section className="relative">
                 <div className="absolute inset-y-0 left-1/2 w-screen -translate-x-1/2 bg-muted" />
